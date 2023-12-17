@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Cart from './pages/Cart';
+import Shoppingcart from './pages/Shoppingcart';
 
 function App() {
   // Your existing code for the ToDo list
@@ -55,7 +55,7 @@ function App() {
           <AddTodo addTodo={addTodo} />
           <Todos todos={todos} onDelete={onDelete} onToggleComplete={handleToggleComplete} />
         </>} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/shoppingcart" element={<Shoppingcart />}/>
       </Routes>
     </Router>
   );

@@ -34,7 +34,7 @@ const Home = () => {
             <p className="feature-description">
               Simplify your shopping experience. Add, remove items, and keep an eye on your shopping cart details. Enjoy a stress-free shopping journey.
             </p>
-            <Link to="/cart" className="feature-button">Explore Shopping Cart</Link>
+            <Link to="/shoppingcart" className="feature-button">Explore Shopping Cart</Link>
           </div>
         </div>
       </section>
