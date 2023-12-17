@@ -1,0 +1,15 @@
+/* TodoList.css */
+
+.container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .my-3 {
+    margin-top: 3rem;
+  }
+  
+  /* Add more styles as needed */
+  

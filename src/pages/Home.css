@@ -1,0 +1,92 @@
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-logo {
+  width: 50px; 
+  height: auto;
+}
+
+.nav-link {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+.project-section {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+.feature {
+  color: #aa5050;
+}
+.feature {
+  background-color: #c0dab1; 
+  flex: 70% 70%; 
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #000; 
+  padding: 40px;
+  margin-right: 3%; 
+
+}
+
+
+.feature-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.feature-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.feature-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #34ac2e; /* Adjusted to a more sophisticated gray color */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feature-button:hover {
+  background-color: #37752d; /* Darker shade on hover */
+}
