@@ -53,19 +53,24 @@ const ShoppingCart = () => {
 
   return (
     <div className="container">
+      <Header /><br />
       <nav className="tabs">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/about" className="nav-link">About</Link>
         <Link to="/contact" className="nav-link">Contact</Link>
-        <button onClick={goToCart}>Go to Cart</button>
       </nav>
-      <Header /><br />
-      <h1 className="heading">Product Listing</h1>
+
       <section>
         <p className="description">
           Users can add items to the shopping cart.
         </p>
-
+        {/* Display the count of items and "Go to Cart" button */}
+        <div className="cart-info">
+          <p>Total Items : {cartItems.length}</p>
+          <button className="go-to-cart-btn" onClick={goToCart}>
+            Go to Cart
+          </button>
+        </div>
         {/* Display product items */}
         <div className="item-container">
           {products.map((item) => (
@@ -77,6 +82,8 @@ const ShoppingCart = () => {
           ))}
         </div>
       </section>
+
+
     </div>
   );
 };
