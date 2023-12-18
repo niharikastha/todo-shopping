@@ -1,52 +1,51 @@
 // ShoppingCart.js
 import React, { useState, useEffect } from 'react';
 import './Shoppingcart.css'; // Import the ShoppingCart.css file for styling
+import Header from '../components/Header';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ShoppingCart = () => {
+  const navigate = useNavigate();
+
   // State to manage shopping cart items
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Function to add an item to the shopping cart
   const addItemToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
   };
 
-  // Function to remove an item from the shopping cart
-  const removeItemFromCart = (itemToRemove) => {
-    const updatedCart = cartItems.filter((item) => item !== itemToRemove);
-    setCartItems(updatedCart);
+  // Function to navigate to the cart page
+  const goToCart = () => {
+    // Convert cart items to JSON string
+    const cartItemsJSON = JSON.stringify(cartItems);
+
+    // Encode the JSON string to make it URL-safe
+    const encodedCartItems = encodeURIComponent(cartItemsJSON);
+
+    // Navigate to the cart page with cart items in the URL
+    navigate(`/cart?cartItems=${encodedCartItems}`);
   };
 
-  // Fetch data from the provided API
-  const fetchData = async () => {
+  // Fetch product data from the provided API
+  const fetchProducts = async () => {
     try {
       const response = await fetch('https://random-data-api.com/api/v2/appliances?size=20');
       const data = await response.json();
-      // Assuming the API returns an array of objects with 'brand' and 'equipment' fields
-      const itemsFromAPI = data.map((item) => ({ brand: item.brand, equipment: item.equipment }));
-      setCartItems(itemsFromAPI);
+      // Assuming the API returns an array of objects with 'id', 'brand', and 'equipment' fields
+      setProducts(data.map((item) => ({ id: item.id, brand: item.brand, equipment: item.equipment })));
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching product data:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData();
+    fetchProducts();
   }, []);
-
-  // Calculate total number of items in the cart
-  const totalItems = cartItems.length;
-
-  // Calculate subtotal (for example, assuming each item costs $10)
-  const subtotal = totalItems * 10;
-
-  // useEffect to log the current cartItems whenever it changes
-  useEffect(() => {
-    console.log('Current Cart Items:', cartItems);
-  }, [cartItems]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -54,19 +53,23 @@ const ShoppingCart = () => {
 
   return (
     <div className="container">
-      <h1 className="main-heading">Shopping Cart</h1>
+      <nav className="tabs">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
+        <Link to="/contact" className="nav-link">Contact</Link>
+        <button onClick={goToCart}>Go to Cart</button>
+      </nav>
+      <Header /><br />
+      <h1 className="heading">Product Listing</h1>
       <section>
-        <p className="section-description">
-          Users can add and remove items from the shopping cart. Display the total number of items and the subtotal.
+        <p className="description">
+          Users can add items to the shopping cart.
         </p>
-        {/* Display total number of items and subtotal */}
-        <p>Total Items in Cart: {totalItems}</p>
-        <p>Subtotal: ${subtotal}</p>
 
-        {/* Display shopping cart items */}
+        {/* Display product items */}
         <div className="item-container">
-          {cartItems.map((item, index) => (
-            <div className="item-box" key={index}>
+          {products.map((item) => (
+            <div className="item-box" key={item.id}>
               <h2>{item.brand}</h2>
               <p>{item.equipment}</p>
               <button onClick={() => addItemToCart(item)}>Add to Cart</button>

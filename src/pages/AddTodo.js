@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 export const AddTodo = ({ addTodo }) => {
   const [todo, setTodo] = useState({ title: '', desc: '' });
 
@@ -25,7 +26,13 @@ export const AddTodo = ({ addTodo }) => {
 
   return (
     <div className="container my-3">
-      <h3>Add a Todo</h3>
+      <nav className="tabs">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
+        <Link to="/contact" className="nav-link">Contact</Link>
+      </nav>
+      <Header /><br />
+      <h3>Add a Todo</h3><br/>
       <form onSubmit={submit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">

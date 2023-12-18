@@ -1,0 +1,67 @@
+/* Shoppingcart.css */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .item-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .item-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .item-box h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .item-box p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .item-box button {
+    background-color: #e44d26;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .item-box button:hover {
+    background-color: #d04324;
+  }
+  
+  .total-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .total-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Add any additional styling as needed */
+  

@@ -3,7 +3,7 @@ import './About.css'; // Create and import your About.css file for styling
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import teamMember1 from '../assets/team-member1.jpg'; // Adjust the path based on your project structure
-// import teamMember2 from '../assets/team-member2.jpg'; // Adjust the path based on your project structure
+import teamMember2 from '../assets/team-member2.jpg'; // Adjust the path based on your project structure
 
 const About = () => {
   return (
@@ -32,7 +32,7 @@ const About = () => {
           <p>Founder & CEO</p>
         </div>
         <div className="team-member">
-          {/* <img src={teamMember2} alt="Team Member 2" /> */}
+          <img src={teamMember2} alt="Team Member 2" />
           <h3>Yash Jain</h3>
           <p>CEO</p>
         </div>

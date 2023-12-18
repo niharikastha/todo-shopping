@@ -13,7 +13,7 @@ export const Todos = ({ todos, onDelete, onToggleComplete }) => {
 
   return (
     <div className="container" style={myStyle}>
-      <h3 className="my-3">Todos List</h3>
+      <h3 className="my-3">Todos List</h3><br/>
       <p>Total Tasks: {totalTasks}</p>
       <p>Completed Tasks: {completedTasks}</p>
       {totalTasks === 0 ? (

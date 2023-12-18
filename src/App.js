@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Shoppingcart from './pages/Shoppingcart';
-
+import Cart from './pages/Cart';
 function App() {
   // Your existing code for the ToDo list
   let initTodo;
@@ -56,6 +56,7 @@ function App() {
           <Todos todos={todos} onDelete={onDelete} onToggleComplete={handleToggleComplete} />
         </>} />
         <Route path="/shoppingcart" element={<Shoppingcart />}/>
+        <Route path="/cart" element={<Cart />}/>
       </Routes>
     </Router>
   );
