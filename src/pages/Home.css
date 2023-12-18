@@ -81,12 +81,12 @@ body {
   font-size: 16px;
   text-decoration: none;
   color: #000;
-  background-color: #34ac2e; /* Adjusted to a more sophisticated gray color */
+  background-color: #34ac2e; 
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .feature-button:hover {
-  background-color: #37752d; /* Darker shade on hover */
+  background-color: #37752d;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
-import './About.css'; // Create and import your About.css file for styling
+import './About.css';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
-import teamMember1 from '../assets/team-member1.jpg'; // Adjust the path based on your project structure
-import teamMember2 from '../assets/team-member2.jpg'; // Adjust the path based on your project structure
-
+import teamMember1 from '../assets/team-member1.jpg';
+import teamMember2 from '../assets/team-member2.jpg';
 const About = () => {
   return (
     <div className="about-container">
@@ -36,7 +35,6 @@ const About = () => {
           <h3>Yash Jain</h3>
           <p>CEO</p>
         </div>
-        {/* Add more team members as needed */}
       </section>
 
       <section className="aboutproject-section">

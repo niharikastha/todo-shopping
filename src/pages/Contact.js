@@ -4,19 +4,18 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import Header from '../components/Header';
 
 const Contact = () => {
-  // State to manage form inputs
-  const navigate = useNavigate(); // Use useNavigate to get the navigate function
+  const navigate = useNavigate(); 
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  // State to manage form errors
+  // To manage form errors
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [messageError, setMessageError] = useState('');
 
-  // Function to validate the form inputs
+  //To validate the form inputs
   const validateForm = () => {
     let isValid = true;
 
@@ -48,7 +47,7 @@ const Contact = () => {
     return isValid;
   };
 
-  // Function to handle form submission
+  //To handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -62,8 +61,8 @@ const Contact = () => {
       setMessage('');
     }
   };
-  const goBackToShoppingCart = () => {
-    navigate('/'); // Assuming the shopping cart page is at the root
+  const goBack = () => {
+    navigate('/');
   };
 
 
@@ -81,7 +80,6 @@ const Contact = () => {
         <p>Feel free to reach out to us with any inquiries or feedback.</p>
 
         <form onSubmit={handleSubmit}>
-          {/* Display error messages */}
           <div className="error-message">{nameError}</div>
           <label htmlFor="name">Name:</label>
           <input
@@ -120,7 +118,7 @@ const Contact = () => {
           <p>Phone: +91 123456789</p>
         </div>
       </div>
-      <button className="go-back-btn" onClick={goBackToShoppingCart}>
+      <button className="go-back-btn" onClick={goBack}>
           Back
         </button>
     </div>

@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
-export const AddTodo = ({ addTodo }) => {
-  const [todo, setTodo] = useState({ title: '', desc: '' });
-  const navigate = useNavigate(); // Use useNavigate to get the navigate function
+import { Link, useNavigate } from 'react-router-dom';
 
+
+export const AddTodo = ({ addTodo }) => {
+  const navigate = useNavigate();
+  const [todo, setTodo] = useState({ title: '', desc: '' });
   const { title, desc } = todo;
+
+
+  const goBack = () => {
+    navigate('/');
+  };
+
+  /*handling changes*/
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setTodo({
-      ...todo,
-      [name]: value,
-    });
+    setTodo({...todo,[name]: value,});
   };
 
+ /*subit function and error handling */
   const submit = (e) => {
     e.preventDefault();
     if (!title || !desc) {
@@ -24,9 +30,7 @@ export const AddTodo = ({ addTodo }) => {
       setTodo({ title: '', desc: '' });
     }
   };
-  const goBackToShoppingCart = () => {
-    navigate('/'); // Assuming the shopping cart page is at the root
-  };
+ 
   return (
     <div className="container my-3">
       <nav className="tabs">
@@ -35,7 +39,7 @@ export const AddTodo = ({ addTodo }) => {
         <Link to="/contact" className="nav-link">Contact</Link>
       </nav>
       <Header /><br />
-      <h3>Add a Todo</h3><br/>
+      <h3>Add a Todo</h3><br />
       <form onSubmit={submit}>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
@@ -67,10 +71,10 @@ export const AddTodo = ({ addTodo }) => {
         <button type="submit" className="btn btn-sm btn-success">
           Add Todo
         </button>
-      </form><br/>
-      <button className="go-back-btn" onClick={goBackToShoppingCart}>
-          Back
-        </button>
+      </form><br />
+      <button className="go-back-btn" onClick={goBack}>
+        Back
+      </button>
     </div>
   );
 };
