@@ -11,8 +11,9 @@
   }
   
   .description {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .item-container {
@@ -62,7 +63,7 @@
 /* Add this to your ShoppingCart.css file */
 
 .cart-info {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   padding: 10px;
@@ -87,4 +88,18 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
+}
+
+
+.loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 40px; /* Adjust the font size as needed */
+  color: #ffffff; /* Adjust the text color as needed */
 }

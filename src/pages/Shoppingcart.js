@@ -28,7 +28,9 @@ const ShoppingCart = () => {
     // Navigate to the cart page with cart items in the URL
     navigate(`/cart?cartItems=${encodedCartItems}`);
   };
-
+  const goBackToShoppingCart = () => {
+    navigate('/'); // Assuming the shopping cart page is at the root
+  };
   // Fetch product data from the provided API
   const fetchProducts = async () => {
     try {
@@ -48,7 +50,14 @@ const ShoppingCart = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="container">
+        <Header /><br />
+        <div className="loading-container">
+          <p className="loading-text">LOADING...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -82,8 +91,9 @@ const ShoppingCart = () => {
           ))}
         </div>
       </section>
-
-
+      <button className="go-back-btn" onClick={goBackToShoppingCart}>
+          Back
+        </button>
     </div>
   );
 };

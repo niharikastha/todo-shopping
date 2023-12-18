@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './Shoppingcart.css'; // Import the ShoppingCart.css file for styling
 import Header from '../components/Header';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   // State to manage items in the cart
@@ -10,6 +10,7 @@ const Cart = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Fetch data from the provided API
   const fetchData = async () => {
@@ -57,14 +58,22 @@ const Cart = () => {
   // Calculate subtotal (for example, assuming each item costs $10)
   const subtotal = totalItems * 10;
 
+  const goBackToShoppingCart = () => {
+    navigate('/shoppingcart'); // Assuming the shopping cart page is at the root
+  };
+
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>LOADING...</p>;
   }
 
   return (
     <div className="container">
       <Header /><br />
-      <h1 className="heading">Shopping Cart</h1>
+      <nav className="tabs">
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
+        <Link to="/contact" className="nav-link">Contact</Link>
+      </nav>
       <section>
         <p className="description">
           Users can view and manage items in the shopping cart.
@@ -84,6 +93,11 @@ const Cart = () => {
         {/* Display total number of items and subtotal */}
         <p>Total Items in Cart: {totalItems}</p>
         <p>Subtotal: ${subtotal}</p>
+
+        {/* Back button to go back to shopping cart */}
+        <button className="go-back-btn" onClick={goBackToShoppingCart}>
+          Back
+        </button>
       </section>
     </div>
   );

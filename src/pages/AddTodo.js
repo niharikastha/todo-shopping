@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 export const AddTodo = ({ addTodo }) => {
   const [todo, setTodo] = useState({ title: '', desc: '' });
+  const navigate = useNavigate(); // Use useNavigate to get the navigate function
 
   const { title, desc } = todo;
 
@@ -23,7 +24,9 @@ export const AddTodo = ({ addTodo }) => {
       setTodo({ title: '', desc: '' });
     }
   };
-
+  const goBackToShoppingCart = () => {
+    navigate('/'); // Assuming the shopping cart page is at the root
+  };
   return (
     <div className="container my-3">
       <nav className="tabs">
@@ -64,7 +67,10 @@ export const AddTodo = ({ addTodo }) => {
         <button type="submit" className="btn btn-sm btn-success">
           Add Todo
         </button>
-      </form>
+      </form><br/>
+      <button className="go-back-btn" onClick={goBackToShoppingCart}>
+          Back
+        </button>
     </div>
   );
 };
